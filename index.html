@@ -8,18 +8,27 @@
 </head>
 <body>
     <header>
-        <h1>Crescent Site Services, LLC</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="index-form.html" class="btn">Get a Free Quote</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="nav-container">
+    <h1 class="logo">Crescent Site Services, LLC</h1>
+
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
     <section id="home">
         <h2>Crescent Site Services, LLC</h2>
@@ -94,5 +103,16 @@
     <footer>
         <p>&copy; 2024 Your Company Name. All rights reserved.</p>
     </footer>
+    <script>
+  const menu = document.getElementById('mobile-menu');
+  const navList = document.querySelector('.nav-list');
+
+  menu.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    navList.classList.toggle('show');
+  });
+</script>
+
+
 </body>
 </html>
