@@ -15,9 +15,8 @@ body {
 
 /* --- Anchor Offset Fix for Sticky Header --- */
 :target {
-  scroll-margin-top: 100px; /* Adjust this number to match your header height */
+  scroll-margin-top: 100px;
 }
-
 
 /* --- Header & Navigation --- */
 header {
@@ -229,22 +228,6 @@ footer p {
   margin: 0;
 }
 
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-
-  #home h2 {
-    font-size: 2rem;
-  }
-
-  #home p {
-    font-size: 1rem;
-  }
-}
-
-/* --- Team Section --- */
 /* --- Team Section --- */
 .team {
   display: flex;
@@ -290,13 +273,7 @@ footer p {
   margin-bottom: 0.6rem;
 }
 
-@media (max-width: 768px) {
-  .team-member img {
-    height: 280px;
-  }
-}
-
-/* Quote Form Styling */
+/* --- Quote Form --- */
 #quote {
   padding: 60px;
   background: #f8f9fa;
@@ -324,18 +301,10 @@ form {
   margin-bottom: 20px;
 }
 
-.form-row label {
-  width: 48%;
-  display: block;
-  margin-bottom: 8px;
-  color: #444;
-}
-
+.form-row label,
 .form-row input {
   width: 48%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  display: block;
 }
 
 textarea {
@@ -362,3 +331,161 @@ button {
 button:hover {
   background-color: #41729f;
 }
+
+/* --- Responsive Breakpoints --- */
+
+/* Large Devices (Desktops & Laptops) */
+@media (max-width: 1200px) {
+  #home {
+    padding: 6rem 2rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+  nav ul {
+    flex-direction: column;
+  }
+  #home h2 {
+    font-size: 2rem;
+  }
+  .service, .team-member {
+    max-width: 90%;
+  }
+}
+
+/* Small Devices (Phones) */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  #home {
+    padding: 5rem 1.5rem;
+  }
+  #home h2 {
+    font-size: 1.8rem;
+  }
+  #home p {
+    font-size: 1rem;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+  .form-row label, .form-row input {
+    width: 100%;
+  }
+  .team-member img {
+    height: 250px;
+  }
+}
+
+/* Extra Small Devices (Narrow Phones) */
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+  nav ul li {
+    margin: 0.3rem 0;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  #home {
+    padding: 4rem 1rem;
+  }
+  #home h2 {
+    font-size: 1.5rem;
+  }
+  #about, #services, #projects, #contact, #quote {
+    padding: 2rem 1rem;
+  }
+}
+/* --- Header & Navigation --- */
+header {
+  background: #0b2545;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Container for title and menu icon */
+/* --- Container for title and menu icon --- */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* keeps logo left and menu right */
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Logo stays on the left */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Hamburger Menu on the right */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto; /* pushes it all the way to the right */
+}
+
+/* Hamburger Bars */
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Show hamburger menu on mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start; /* left-align the menu items when open */
+    background-color: #0b2545;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  nav ul.show {
+    max-height: 400px;
+  }
+
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  nav ul li {
+    margin: 1rem 0;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+}
+
